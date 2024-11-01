@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Hello Wold!"
-date:   2024-11-01 12:41:00 -0700
+date:   2024-11-01 13:56:00 -0700
 categories: jekyll update
 ---
 
@@ -17,4 +17,4 @@ This is a list:
 int x = y;
 ```
 
-This is a [hyperlink](github.com)
+This is a [hyperlink](https://github.com)
