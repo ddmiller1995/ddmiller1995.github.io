@@ -16,21 +16,60 @@
     crossorigin=""></script>
     
     <style>
-        #map {
-            height: 100vh;
-            width: 100%;
-        }
         body {
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            height: calc(100vh - 80px);
+            width: 100%;
+        }
+        #form-container {
+            padding: 15px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #city-form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        #city-form input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        #city-form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        #city-form button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
+    <div id="form-container">
+        <form id="city-form">
+            <input type="text" id="city-name" placeholder="City name" required>
+            <input type="text" id="visit-date" placeholder="Visit date (YYYY)" required>
+            <button type="submit">Add Marker</button>
+        </form>
+    </div>
     <div id="map"></div>
+
     <script>
         // Initialize the map
-        var map = L.map('map').setView([30, 0], 2);
+        var map = L.map('map').setView([30, 0], 3);
 
         // Add the tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -44,27 +83,58 @@
             {name: "Manhattan", lat: 40.7831, lon: -73.9712, date: "2018"}
         ];
 
-        // Add markers for each point
-        points.forEach(function(point) {
+        function addMarker(point) {
             var marker = L.marker([point.lat, point.lon]).addTo(map);
             
-            // Create a tooltip with the date visited
             marker.bindTooltip(point.name + ": Visited in " + point.date, {
                 permanent: false,
                 direction: 'top',
                 offset: L.point(-15, -15),
-                opacity: 0.9
+                opacity: 0.7
             });
 
-            // Show tooltip on hover
             marker.on('mouseover', function (e) {
                 this.openTooltip();
             });
 
-            // Hide tooltip when not hovering
             marker.on('mouseout', function (e) {
                 this.closeTooltip();
             });
+        }
+
+        // Add initial markers
+        points.forEach(addMarker);
+
+        // Handle form submission
+        document.getElementById('city-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var cityName = document.getElementById('city-name').value;
+            var visitDate = document.getElementById('visit-date').value;
+
+            // Use a geocoding service to get coordinates (this example uses Nominatim)
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(cityName)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        var newPoint = {
+                            name: cityName,
+                            lat: parseFloat(data[0].lat),
+                            lon: parseFloat(data[0].lon),
+                            date: visitDate
+                        };
+                        addMarker(newPoint);
+                        points.push(newPoint);
+                    } else {
+                        alert('City not found');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while searching for the city');
+                });
+
+            // Clear the form
+            this.reset();
         });
     </script>
 </body>
