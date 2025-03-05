@@ -11,6 +11,8 @@ Why do we care about scaling?
 2. Prevent failure - improves availability, customer trust 
 3. Keep up with business growth - systems that don't scale can bottleneck your business
 
+horizontal 
+
 ### Scope
 - Can we keep load balancing / VIP throughput out of scope? Start with assuming the connections have made it to your service? 
 - How do we think about dependencies? 
@@ -27,7 +29,7 @@ Why do we care about scaling?
 
 
 ### Mental Models for API Load
-Ideal would be a graphic, that shows requests coming to an API, where each request has a duration. Connections constrain how many requests can be processes at a time. Start with a single compute instance, show vertical scaling (increase connection count, CPU processing time), show horizontonal (increases # of instances). How latency impacts scaling bottlenecks. Propose that goal should be to be CPU or memory bound. 
+Ideal would be a graphic, that shows requests coming to an API, where each request has a duration. Connections constrain how many requests can be processes at a time. Start with a single compute instance, show vertical scaling (increase connection count, CPU processing time), show horizontal (increases # of instances). How latency impacts scaling bottlenecks. Propose that goal should be to be CPU or memory bound. 
 
 A thought - for APIs, as you approach your resource limits, the symptom tends to be latency. Your resources are struggling to get the work done, making that work take longer. When you hit that limit, you see complete failure. Spillovers, timeouts, 5xx.
 

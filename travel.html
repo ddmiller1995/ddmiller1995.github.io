@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel World Map</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([30, 0], 2);
+
+        // Add the tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Define the points
+        var points = [
+            {name: "Tokyo", lat: 35.6762, lon: 139.6503, date: "2024"},
+            {name: "Seattle", lat: 47.6062, lon: -122.3321, date: "2016"},
+            {name: "Manhattan", lat: 40.7831, lon: -73.9712, date: "2018"}
+        ];
+
+        // Add markers for each point
+        points.forEach(function(point) {
+            var marker = L.marker([point.lat, point.lon]).addTo(map);
+            
+            // Create a tooltip with the date visited
+            marker.bindTooltip(point.name + ": Visited in " + point.date, {
+                permanent: false,
+                direction: 'top',
+                offset: L.point(-15, -15),
+                opacity: 0.9
+            });
+
+            // Show tooltip on hover
+            marker.on('mouseover', function (e) {
+                this.openTooltip();
+            });
+
+            // Hide tooltip when not hovering
+            marker.on('mouseout', function (e) {
+                this.closeTooltip();
+            });
+        });
+    </script>
+</body>
+</html>

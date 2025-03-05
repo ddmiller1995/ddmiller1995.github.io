@@ -1,0 +1,3 @@
+Each and every software team is unique. And of course they are, since teams are made up of individuals that each bring their own diverse perspectives and communication styles. However, the longer I've been in the industry the more opportunity I have had to see the common patterns that tend to emerge in teams. 
+
+Most engineers that have worked on software teams for any amount of time know what it *feels* like to be on a "good" team, and how much better that feels than to be on a bad one. Working on an unhealthy team can carry 
