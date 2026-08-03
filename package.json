@@ -1,0 +1,15 @@
+{
+  "name": "dakota-miller-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node dev-server.mjs",
+    "dev": "node --watch build.mjs"
+  },
+  "dependencies": {
+    "@shikijs/markdown-it": "^4.4.1",
+    "markdown-it": "^15.0.0",
+    "markdown-it-anchor": "^9.2.1"
+  }
+}

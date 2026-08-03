@@ -1,9 +1,3 @@
----
-layout: page
-title: Resources
-permalink: /resources/
----
-
 Links to things I've been reading
 
 * Will Lethian's newsletter [Irrational Exuberance](https://lethain.com/) and writings about [Staff Engineering](https://staffeng.com/)
