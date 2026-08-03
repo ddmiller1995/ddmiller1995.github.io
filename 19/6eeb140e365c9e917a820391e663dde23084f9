@@ -1,0 +1,14 @@
+static/css/site.css
+  h_575c371f09c235 19-20,62,64-65,102-103,224-225
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "196eeb140e365c9e917a820391e663dde23084f9",
+  "prompts": {},
+  "humans": {
+    "h_575c371f09c235": {
+      "author": "Dakota Miller <ddmiller1995@gmail.com>"
+    }
+  }
+}
