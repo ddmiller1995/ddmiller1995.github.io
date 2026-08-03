@@ -16,6 +16,8 @@ export function layout({ title, description, bodyHtml, activeHref, config }) {
   <meta name="description" content="${description}">
   <link rel="icon" href="/favicon.ico">
   <link rel="alternate" type="application/rss+xml" title="${config.title}" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>

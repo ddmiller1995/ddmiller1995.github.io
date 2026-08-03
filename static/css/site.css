@@ -1,12 +1,21 @@
+/*
+  Broadsheet redesign — drop-in replacement for static/css/site.css.
+  Newsprint palette: near-black ink on paper white, Source Serif 4,
+  cyan as the one interactive accent. Class names match the existing
+  templates/layout.mjs, templates/post.mjs, templates/postList.mjs,
+  templates/page.mjs output 1:1 — no template markup changes required
+  beyond the font <link> noted in the handoff README.
+*/
+
 :root {
-  --bg: #101216;
-  --bg-raised: #181b21;
-  --text: #eeeeee;
-  --text-muted: #9aa0aa;
-  --border: #2a2e37;
-  --brand: #1a98ff;
-  --brand-hover: #5cb6ff;
-  --brand-visited: #aeaeae;
+  --bg: #f3f2f2;
+  --bg-raised: #eae9e9;
+  --text: #201e1d;
+  --text-muted: #6b6767;
+  --border: color-mix(in srgb, #201e1d 16%, transparent);
+  --brand: #0088b0;
+  --brand-hover: #006786;
+  --brand-visited: #6b6767;
   --max-width: 42rem;
 }
 
@@ -15,14 +24,15 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size: 18px;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
@@ -32,6 +42,7 @@ body {
 a {
   color: var(--brand);
   text-decoration: none;
+  text-underline-offset: 3px;
 }
 
 a:visited {
@@ -51,27 +62,28 @@ a:hover {
   gap: 1rem;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1.5rem 1.25rem 1rem;
+  padding: 2.5rem 1.25rem 1.5rem;
 }
 
 .site-title {
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--brand);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--text);
 }
 
 .site-title:visited {
-  color: var(--brand);
+  color: var(--text);
 }
 
 .site-header nav {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 .site-header nav a {
   color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .site-header nav a:visited {
@@ -91,11 +103,10 @@ main {
   padding: 0 1.25rem 3rem;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  line-height: 1.25;
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .heading-anchor {
@@ -113,12 +124,12 @@ h4:hover .heading-anchor {
 
 img {
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 2px;
 }
 
 video {
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 2px;
 }
 
 table {
@@ -129,8 +140,7 @@ table {
   overflow-x: auto;
 }
 
-th,
-td {
+th, td {
   border: 1px solid var(--border);
   padding: 0.5rem 0.75rem;
   text-align: left;
@@ -138,32 +148,35 @@ td {
 
 th {
   background: var(--bg-raised);
+  font-weight: 600;
 }
 
 code {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  font-size: 0.9em;
+  font-size: 0.85em;
 }
 
 :not(pre) > code {
   background: var(--bg-raised);
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: 2px;
   padding: 0.15em 0.4em;
 }
 
 pre {
-  border-radius: 8px;
-  padding: 1rem;
+  border-radius: 2px;
+  padding: 1.25rem;
   overflow-x: auto;
   border: 1px solid var(--border);
+  background: var(--bg-raised);
 }
 
 blockquote {
   margin: 1.5rem 0;
-  padding-left: 1rem;
-  border-left: 3px solid var(--border);
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--brand);
   color: var(--text-muted);
+  font-style: italic;
 }
 
 .post-date {
@@ -173,7 +186,7 @@ blockquote {
 }
 
 .post-header {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .post-list {
@@ -183,7 +196,7 @@ blockquote {
 }
 
 .post-list-item {
-  padding: 1.25rem 0;
+  padding: 1.75rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -192,8 +205,13 @@ blockquote {
 }
 
 .post-link {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 600;
+  color: var(--text);
+}
+
+.post-link:hover {
+  color: var(--brand);
 }
 
 .post-excerpt {
@@ -204,8 +222,7 @@ blockquote {
 .site-footer {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2rem 1.25rem;
-  border-top: 1px solid var(--border);
+  padding: 2.5rem 1.25rem;
   color: var(--text-muted);
   font-size: 0.9rem;
 }
@@ -215,5 +232,5 @@ blockquote {
 }
 
 .social-links a {
-  margin-right: 1rem;
+  margin-right: 1.25rem;
 }
