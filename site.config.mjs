@@ -10,7 +10,6 @@ export default {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about/' },
     { label: 'Resources', href: '/resources/' },
-    { label: 'Travel Map', href: '/travel/' },
   ],
   pages: [
     { slug: 'about', title: 'About', path: '/about/' },
