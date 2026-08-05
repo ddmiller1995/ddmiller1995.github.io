@@ -1,0 +1,29 @@
+.gitignore
+  s_5093f427a4e90c::t_35ad7860153c09 4
+docs/superpowers/specs/2026-08-05-minimal-corner-nav-redesign.md
+  s_5093f427a4e90c::t_9a624b26c07e3d 1-89
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "2bfc14eb39b41b813426e0d80adec1dfcd5a5156",
+  "prompts": {},
+  "humans": {
+    "h_575c371f09c235": {
+      "author": "Dakota Miller <ddmiller1995@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_5093f427a4e90c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8e2c3335-2a3a-4fd2-861e-ad24e5fb4ce2",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Dakota Miller <ddmiller1995@gmail.com>",
+      "custom_attributes": {
+        "runtime": "local"
+      }
+    }
+  }
+}
