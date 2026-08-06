@@ -4,6 +4,7 @@
 const combos = [
   { id: 'original', label: 'Original (Source Serif)' },
   { id: 'redhat', label: 'Red Hat Mono / Text' },
+  { id: 'redhat-source', label: 'Red Hat Mono / Source Serif' },
   { id: 'space-jakarta', label: 'Space Mono / Jakarta' },
   { id: 'ubuntu-rokkitt', label: 'Ubuntu / Rokkitt' },
   { id: 'oswald-source', label: 'Oswald / Source Serif' },
