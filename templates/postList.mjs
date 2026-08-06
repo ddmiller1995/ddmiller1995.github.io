@@ -14,9 +14,9 @@ export function postListView(posts, config) {
     .join('');
 
   const bodyHtml = `
-    <h1>Posts</h1>
+    <h1>Writing</h1>
     <ul class="post-list">${items}
     </ul>
   `;
-  return layout({ title: 'Home', description: config.description, bodyHtml, activeHref: '/', config });
+  return layout({ title: 'Home', description: config.description, bodyHtml, config, nav: { back: null, bio: true } });
 }

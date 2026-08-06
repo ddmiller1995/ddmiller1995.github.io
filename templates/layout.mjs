@@ -1,11 +1,16 @@
-export function layout({ title, description, bodyHtml, activeHref, config }) {
-  const navLinks = config.nav
-    .map((item) => `<a href="${item.href}"${item.href === activeHref ? ' class="active"' : ''}>${item.label}</a>`)
-    .join('\n      ');
+const BACK_ICON = `<svg viewBox="0 0 24 24"><path d="M15 5 L7 12 L15 19"/></svg>`;
+const BIO_ICON = `<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>`;
 
-  const socialLinks = config.social
-    .map((s) => `<a href="${s.url}" target="_blank" rel="noopener">${s.platform}</a>`)
-    .join('\n      ');
+export function layout({ title, description, bodyHtml, config, nav = {} }) {
+  const { back = null, bio = false } = nav;
+
+  const backIcon = back
+    ? `<a class="corner-icon" href="${back}" aria-label="Back">${BACK_ICON}</a>`
+    : '';
+
+  const bioIcon = bio
+    ? `<a class="corner-icon" href="/bio/" aria-label="Bio">${BIO_ICON}</a>`
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -21,21 +26,13 @@ export function layout({ title, description, bodyHtml, activeHref, config }) {
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="site-title" href="/">${config.title}</a>
-    <nav>
-      ${navLinks}
-    </nav>
-  </header>
+  <div class="nav-bar">
+    <div class="nav-slot">${backIcon}</div>
+    <div class="nav-slot">${bioIcon}</div>
+  </div>
   <main>
     ${bodyHtml}
   </main>
-  <footer class="site-footer">
-    <p>© ${new Date().getFullYear()} ${config.author.name} · <a href="/feed.xml">RSS</a></p>
-    <p class="social-links">
-      ${socialLinks}
-    </p>
-  </footer>
 </body>
 </html>
 `;

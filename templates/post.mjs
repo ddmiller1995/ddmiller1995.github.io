@@ -20,5 +20,5 @@ export function postView(post, config) {
       ${post.html}
     </article>
   `;
-  return layout({ title: post.title, description: post.excerpt || config.description, bodyHtml, activeHref: '/', config });
+  return layout({ title: post.title, description: post.excerpt || config.description, bodyHtml, config, nav: { back: '/', bio: true } });
 }

@@ -6,14 +6,8 @@ export default {
     name: 'Dakota Miller',
     email: 'me@dakota-miller.com',
   },
-  nav: [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about/' },
-    { label: 'Resources', href: '/resources/' },
-  ],
   pages: [
-    { slug: 'about', title: 'About', path: '/about/' },
-    { slug: 'resources', title: 'Resources', path: '/resources/' },
+    { slug: 'bio', title: 'Bio', path: '/bio/' },
   ],
   social: [
     { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/dakota-miller-01010954/' },
