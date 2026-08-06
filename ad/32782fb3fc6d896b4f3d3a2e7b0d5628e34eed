@@ -1,0 +1,54 @@
+content/posts/2026-08-05-second-post.md
+  h_575c371f09c235 1-23
+templates/layout.mjs
+  h_575c371f09c235 12
+  s_5093f427a4e90c::t_660623af923496 29-32
+  s_5093f427a4e90c::t_c8dafdbe50c4ed 8
+  s_5093f427a4e90c::t_3da687af41cf0d 1-2,4-7,9-11,13
+templates/postList.mjs
+  h_575c371f09c235 17
+  s_5093f427a4e90c::t_24257456b19dcb 21
+content/posts/2024-11-01-hello-world.md
+  h_575c371f09c235 12-19
+content/pages/bio.md
+  h_575c371f09c235 1-5
+templates/post.mjs
+  s_5093f427a4e90c::t_7849865120f167 23
+site.config.mjs
+  h_575c371f09c235 10
+templates/page.mjs
+  h_575c371f09c235 4
+  s_5093f427a4e90c::t_40cda87079b675 5-13,18,21-28
+static/css/site.css
+  s_5093f427a4e90c::t_bfe2356dea367b 20
+  s_5093f427a4e90c::t_d60915ab091d77 214-216,219-220
+  s_5093f427a4e90c::t_816af168c339ed 222-231,234-237
+  s_5093f427a4e90c::t_1878e823aa3015 95
+  s_5093f427a4e90c::t_19ad16f4148446 56,58,60
+  s_5093f427a4e90c::t_d3853d8de3be97 63-65,67-68,72,76,78-88,94
+  s_5093f427a4e90c::t_61b618280ac30e 221
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "ad32782fb3fc6d896b4f3d3a2e7b0d5628e34eed",
+  "prompts": {},
+  "humans": {
+    "h_575c371f09c235": {
+      "author": "Dakota Miller <ddmiller1995@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_5093f427a4e90c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8e2c3335-2a3a-4fd2-861e-ad24e5fb4ce2",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Dakota Miller <ddmiller1995@gmail.com>",
+      "custom_attributes": {
+        "runtime": "local"
+      }
+    }
+  }
+}
