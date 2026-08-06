@@ -1,0 +1,43 @@
+package.json
+  s_6d98f81ee60f6e::t_4c0c47eddf5f06 7
+dev-server.mjs
+  s_6d98f81ee60f6e::t_1f4713fce4e155 4,31-65,82-87,89-102,105-110,120,126-131,133
+static/css/site.css
+  s_6d98f81ee60f6e::t_45caec1e880f61 30-34
+  s_6d98f81ee60f6e::t_d6418bbf649904 245,247
+  s_6d98f81ee60f6e::t_dae61f924163c0 62
+  s_6d98f81ee60f6e::t_7217c7190499ed 191
+  s_6d98f81ee60f6e::t_847a456fb72a22 126
+  s_6d98f81ee60f6e::t_b12fa2ecfe91fd 244
+  s_6d98f81ee60f6e::t_3760d25bf2e555 128-145
+  s_6d98f81ee60f6e::t_1fd0fbb8306149 285-320
+  s_6d98f81ee60f6e::t_cfdf8b08b43407 21-29,35-47
+templates/layout.mjs
+  s_6d98f81ee60f6e::t_a486c3d2e42b6a 7
+  s_6d98f81ee60f6e::t_51710ae1ac4dab 53
+  s_6d98f81ee60f6e::t_3bc42a22c2d7a8 4-6,8-27,39-42,54,56-63,73-99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "6ca839db922de9c96893778f3f89434a96093e30",
+  "prompts": {},
+  "humans": {
+    "h_575c371f09c235": {
+      "author": "Dakota Miller <ddmiller1995@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_6d98f81ee60f6e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "becd3c8c-810a-4008-b4f9-972869cf29f1",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Dakota Miller <ddmiller1995@gmail.com>",
+      "custom_attributes": {
+        "runtime": "local"
+      }
+    }
+  }
+}
