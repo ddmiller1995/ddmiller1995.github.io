@@ -32,6 +32,11 @@
   --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
 }
 
+:root[data-font-combo="redhat-source"] {
+  --font-heading: "Red Hat Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
 :root[data-font-combo="space-jakarta"] {
   --font-heading: "Space Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -73,7 +78,7 @@ a {
   background-repeat: no-repeat;
   background-position: 0 100%;
   background-size: 0% 1px;
-  transition: background-size 0.18s linear;
+  transition: background-size 0.12s linear;
 }
 
 a:visited {
@@ -129,6 +134,7 @@ main {
 }
 
 h1, h2, h3, h4 {
+  position: relative;
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.25;
@@ -152,9 +158,15 @@ h4 {
 }
 
 .heading-anchor {
-  margin-right: 0.4rem;
+  position: absolute;
+  right: 100%;
+  padding-right: 0.4em;
   color: var(--text-muted);
   opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  background-origin: content-box;
+  background-clip: content-box;
 }
 
 h1:hover .heading-anchor,
@@ -162,6 +174,7 @@ h2:hover .heading-anchor,
 h3:hover .heading-anchor,
 h4:hover .heading-anchor {
   opacity: 1;
+  transform: translateX(0);
 }
 
 img {
@@ -358,10 +371,20 @@ blockquote {
   to { transform: translateX(100%); }
 }
 
+::view-transition-group(root) {
+  background-color: var(--bg);
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.28s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+  /* UA default is `plus-lighter`, meant for the built-in cross-fade —
+     with a transform-based slide it can blow overlapping pixels out
+     to white instead of just sliding past each other. */
+  mix-blend-mode: normal;
+  background-color: var(--bg);
 }
 
 ::view-transition-old(root) {
