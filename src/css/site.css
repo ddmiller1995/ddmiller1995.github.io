@@ -19,36 +19,7 @@
   --max-width: 44rem;
   --content-inset: clamp(1.25rem, 6vw, 3rem);
   --font-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-
-  /* Font-pairing experiment: swap combos via [data-font-combo] on <html>,
-     driven by the switcher in src/_includes/base.njk and src/_data/fonts.js.
-     Delete the non-winning blocks (and this comment) once a combo is chosen. */
   --font-heading: "Red Hat Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --font-body: "Red Hat Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-}
-
-:root[data-font-combo="original"] {
-  --font-heading: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
-}
-
-:root[data-font-combo="redhat-source"] {
-  --font-heading: "Red Hat Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
-}
-
-:root[data-font-combo="space-jakarta"] {
-  --font-heading: "Space Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-}
-
-:root[data-font-combo="ubuntu-rokkitt"] {
-  --font-heading: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-body: "Rokkitt", Georgia, "Times New Roman", serif;
-}
-
-:root[data-font-combo="oswald-source"] {
-  --font-heading: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
 }
 
@@ -301,42 +272,6 @@ blockquote {
   body {
     font-size: 16px;
   }
-}
-
-/* Font-pairing experiment: remove with the switcher markup once retired. */
-.font-switcher {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.4rem;
-  max-width: min(260px, calc(100vw - 2rem));
-  z-index: 100;
-}
-
-.font-switcher button {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 0.7rem;
-  line-height: 1;
-  padding: 0.45rem 0.65rem;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--bg-raised);
-  color: var(--text-muted);
-  cursor: pointer;
-}
-
-.font-switcher button:hover {
-  color: var(--text);
-  border-color: var(--text-muted);
-}
-
-.font-switcher button[aria-pressed="true"] {
-  background: var(--brand);
-  border-color: var(--brand);
-  color: #fff;
 }
 
 /*

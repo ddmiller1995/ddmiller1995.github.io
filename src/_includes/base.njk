@@ -9,16 +9,8 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="{{ fonts.href }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
   <link rel="stylesheet" href="/css/site.css">
-  <script>
-    (function () {
-      try {
-        var combo = localStorage.getItem('fontCombo');
-        if (combo && combo !== 'redhat') document.documentElement.setAttribute('data-font-combo', combo);
-      } catch (e) {}
-    })();
-  </script>
 </head>
 <body>
   <div class="nav-bar">
@@ -40,33 +32,5 @@
   <main>
     {{ content | safe }}
   </main>
-  <div class="font-switcher" role="group" aria-label="Font combo switcher">
-    {% for combo in fonts.combos %}<button type="button" data-combo="{{ combo.id }}">{{ combo.label }}</button>
-    {% endfor %}
-  </div>
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var buttons = document.querySelectorAll('.font-switcher button');
-      function setActive(combo) {
-        buttons.forEach(function (b) {
-          b.setAttribute('aria-pressed', b.dataset.combo === combo ? 'true' : 'false');
-        });
-      }
-      setActive(root.getAttribute('data-font-combo') || 'redhat');
-      buttons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var combo = btn.dataset.combo;
-          if (combo === 'redhat') {
-            root.removeAttribute('data-font-combo');
-          } else {
-            root.setAttribute('data-font-combo', combo);
-          }
-          try { localStorage.setItem('fontCombo', combo); } catch (e) {}
-          setActive(combo);
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
