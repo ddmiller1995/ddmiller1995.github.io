@@ -69,6 +69,11 @@ a {
   color: var(--brand);
   text-decoration: none;
   text-underline-offset: 3px;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.18s linear;
 }
 
 a:visited {
@@ -77,7 +82,7 @@ a:visited {
 
 a:hover {
   color: var(--brand-hover);
-  text-decoration: underline;
+  background-size: 100% 1px;
 }
 
 .nav-bar {
@@ -94,6 +99,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   color: var(--text-muted);
+  background-image: none;
 }
 
 .corner-icon:visited {
@@ -246,6 +252,7 @@ blockquote {
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text);
+  background-image: none;
 }
 
 .post-link:hover {
@@ -317,4 +324,71 @@ blockquote {
   background: var(--brand);
   border-color: var(--brand);
   color: #fff;
+}
+
+/*
+  Page-navigation slide transitions (cross-document View Transitions).
+  Chromium-only progressive enhancement — Safari/Firefox just navigate
+  normally with no animation, no errors. `data-page-type` on <html>
+  (set in base.njk from navBack) tells the *destination* page which
+  direction to animate, since only the new document's stylesheet
+  controls ::view-transition-old/new for a cross-document navigation.
+*/
+@view-transition {
+  navigation: auto;
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-out-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-out-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.28s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: slide-out-left;
+}
+
+::view-transition-new(root) {
+  animation-name: slide-in-right;
+}
+
+/* Navigating back to home: reverse the direction. */
+html[data-page-type="home"]::view-transition-old(root) {
+  animation-name: slide-out-right;
+}
+
+html[data-page-type="home"]::view-transition-new(root) {
+  animation-name: slide-in-left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }
