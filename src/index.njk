@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: Home
+navBack: null
+navBio: true
+---
+<h1>Writing</h1>
+<ul class="post-list">
+{% for post in collections.posts | reverse %}
+  <li class="post-list-item">
+    <a class="post-link" href="{{ post.url }}">{{ post.data.title }}</a>
+    <p class="post-date">{{ post.date | postDate }}</p>
+    <p class="post-excerpt">{{ post.templateContent | excerpt }}</p>
+  </li>
+{% endfor %}
+</ul>

@@ -1,0 +1,13 @@
+---
+layout: base.njk
+navBack: /
+navBio: true
+useExcerptDescription: true
+---
+<article class="post">
+  <header class="post-header">
+    <h1>{{ title }}</h1>
+    <p class="post-date">{{ page.date | postDate }}</p>
+  </header>
+  {{ content | safe }}
+</article>

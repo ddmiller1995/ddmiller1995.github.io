@@ -1,4 +1,6 @@
-# Hello World!
+---
+title: Hello World!
+---
 
 Welcome to my site. This first post is mostly here to make sure the pipes work end to end - markdown rendering, syntax highlighting, and permalinks.
 

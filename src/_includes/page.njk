@@ -1,0 +1,15 @@
+---
+layout: base.njk
+navBack: /
+navBio: true
+---
+<article class="page">
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
+  {% if showSocialLinks %}
+  <p class="bio-links">
+    {% for s in site.social %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.platform }}</a>
+    {% endfor %}<a href="/feed.xml">RSS</a>
+  </p>
+  {% endif %}
+</article>
