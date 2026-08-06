@@ -1,0 +1,35 @@
+src/css/site.css
+  s_0a5e1c4e195071::t_aa8b6fe4953ac0 161-163
+  s_0a5e1c4e195071::t_660991c8ed074a 374-377,382-387
+  h_575c371f09c235 81
+  s_0a5e1c4e195071::t_0581ab767581dd 137
+  s_0a5e1c4e195071::t_a24178809c3985 166-167,177
+  s_0a5e1c4e195071::t_8a79c565528da0 168-169
+  s_0a5e1c4e195071::t_e985156bcee3d6 35-39
+src/_data/fonts.js
+  s_0a5e1c4e195071::t_98c81797656237 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "bc2a549807d8e2a10cfb24b755a9e7e588a62e56",
+  "prompts": {},
+  "humans": {
+    "h_575c371f09c235": {
+      "author": "Dakota Miller <ddmiller1995@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_0a5e1c4e195071": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "514d25b9-731b-46c1-b39a-3a168adffea8",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Dakota Miller <ddmiller1995@gmail.com>",
+      "custom_attributes": {
+        "runtime": "local"
+      }
+    }
+  }
+}
