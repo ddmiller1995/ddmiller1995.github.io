@@ -1,0 +1,22 @@
+src/_includes/base.njk
+  s_0a5e1c4e195071::t_04ebd60e40c247 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "e61c69ef17edf587da57ec5ef4a82ebf2f69a1a6",
+  "prompts": {},
+  "sessions": {
+    "s_0a5e1c4e195071": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "514d25b9-731b-46c1-b39a-3a168adffea8",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Dakota Miller <ddmiller1995@gmail.com>",
+      "custom_attributes": {
+        "runtime": "local"
+      }
+    }
+  }
+}
