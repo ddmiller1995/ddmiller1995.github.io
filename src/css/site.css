@@ -20,7 +20,7 @@
   --content-inset: clamp(1.25rem, 6vw, 3rem);
   --font-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   --font-heading: "Red Hat Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "Red Hat Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 * {
