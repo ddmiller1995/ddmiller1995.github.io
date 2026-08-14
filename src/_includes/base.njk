@@ -7,9 +7,19 @@
   <meta name="description" content="{{ (content | excerpt) if useExcerptDescription else (description or site.description) }}">
   <link rel="icon" href="/favicon.ico">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
+  <!-- Matches --bg in site.css. Cross-document view transitions hold the old
+       page's screenshot until the new page's render-blocking resources are
+       done; if first paint ever slips through before then, this keeps it
+       from being the UA-default white instead of the page background. -->
+  <style>html{background:#f3f2f2}</style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
+  <!-- Loaded non-render-blocking: this is a cross-origin request repeated on
+       every navigation (full page load, not an SPA), and if it blocks first
+       paint it can push the new page past Chrome's readiness window for the
+       cross-document view transition, causing it to skip silently. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap"></noscript>
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
