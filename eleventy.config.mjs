@@ -12,7 +12,7 @@ md.use(anchor, {
   }),
 });
 
-md.use(await Shiki({ theme: 'vitesse-dark' }));
+md.use(await Shiki({ theme: 'vitesse-light' }));
 
 export default function (eleventyConfig) {
   eleventyConfig.setLibrary('md', md);
