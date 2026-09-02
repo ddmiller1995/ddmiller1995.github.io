@@ -1,0 +1,33 @@
+src/posts/2026-09-02-keeping-up-with-code-reviews.md
+  h_575c371f09c235 1-5
+  s_8db80802c10d4a::t_496dc1a2adcb59 9
+  s_8db80802c10d4a::t_2bb0a8a04fa8b8 42
+  s_8db80802c10d4a::t_8d422b6c9c2d93 44
+  s_8db80802c10d4a::t_7a76e0e78f2d97 6-8,10-41,43,45-77
+eleventy.config.mjs
+  s_8db80802c10d4a::t_d0870765568098 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "72676c0190af86dbcf3a7656776fb3ab4866e555",
+  "prompts": {},
+  "humans": {
+    "h_575c371f09c235": {
+      "author": "Dakota Miller <ddmiller1995@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_8db80802c10d4a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fdec52d7-2bac-47cd-8ec6-74178266d228",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Dakota Miller <ddmiller1995@gmail.com>",
+      "custom_attributes": {
+        "runtime": "local"
+      }
+    }
+  }
+}
