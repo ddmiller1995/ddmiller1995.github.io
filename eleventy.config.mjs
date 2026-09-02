@@ -18,6 +18,7 @@ export default function (eleventyConfig) {
   eleventyConfig.setLibrary('md', md);
 
   eleventyConfig.addPassthroughCopy('src/css');
+  eleventyConfig.addPassthroughCopy('src/images');
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
   eleventyConfig.addPassthroughCopy('src/CNAME');
 
