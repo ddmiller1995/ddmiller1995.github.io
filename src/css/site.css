@@ -197,6 +197,14 @@ pre {
   background: var(--bg-raised);
 }
 
+/* Fenced blocks with no language are prose (rules, config, output) — wrap them
+   rather than forcing horizontal scroll. Highlighted code keeps scrolling so
+   indentation stays intact. */
+pre > code.language-text {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
 blockquote {
   margin: 1.5rem 0;
   padding-left: 1.25rem;
