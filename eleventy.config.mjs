@@ -14,6 +14,19 @@ md.use(anchor, {
 
 md.use(await Shiki({ theme: 'vitesse-light' }));
 
+// Open external (absolute http/https) links in a new tab; internal links unchanged.
+const defaultLinkOpen =
+  md.renderer.rules.link_open ||
+  ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+  const href = tokens[idx].attrGet('href') || '';
+  if (/^https?:\/\//.test(href)) {
+    tokens[idx].attrSet('target', '_blank');
+    tokens[idx].attrSet('rel', 'noopener');
+  }
+  return defaultLinkOpen(tokens, idx, options, env, self);
+};
+
 export default function (eleventyConfig) {
   eleventyConfig.setLibrary('md', md);
 
@@ -33,11 +46,24 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter('rfc822Date', (date) => new Date(date).toUTCString());
 
-  eleventyConfig.addFilter('excerpt', (html, maxLength = 200) => {
+  const firstParagraphText = (html) => {
     const match = /<p>([\s\S]*?)<\/p>/.exec(html || '');
-    if (!match) return '';
-    const text = match[1].replace(/<[^>]+>/g, '').trim();
+    return match ? match[1].replace(/<[^>]+>/g, '').trim() : '';
+  };
+
+  // Truncated — for meta descriptions where length matters.
+  eleventyConfig.addFilter('excerpt', (html, maxLength = 200) => {
+    const text = firstParagraphText(html);
     return text.length > maxLength ? `${text.slice(0, maxLength).trim()}…` : text;
+  });
+
+  // Full first paragraph — for the post-list snapshot and the RSS feed.
+  eleventyConfig.addFilter('firstParagraph', firstParagraphText);
+
+  // True when the post has content beyond its first paragraph.
+  eleventyConfig.addFilter('hasMore', (html) => {
+    const rest = (html || '').replace(/<p>[\s\S]*?<\/p>/, '');
+    return rest.replace(/<[^>]+>/g, '').trim().length > 0;
   });
 
   return {

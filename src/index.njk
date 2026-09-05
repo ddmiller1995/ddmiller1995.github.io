@@ -10,7 +10,10 @@ navBio: true
   <li class="post-list-item">
     <a class="post-link" href="{{ post.url }}">{{ post.data.title }}</a>
     <p class="post-date">{{ post.date | postDate }}</p>
-    <p class="post-excerpt">{{ post.templateContent | excerpt }}</p>
+    <p class="post-excerpt">{{ post.templateContent | firstParagraph }}</p>
+    {% if post.templateContent | hasMore %}
+    <a class="post-more" href="{{ post.url }}" aria-label="Read more: {{ post.data.title }}">Read more →</a>
+    {% endif %}
   </li>
 {% endfor %}
 </ul>

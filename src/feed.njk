@@ -13,7 +13,7 @@ eleventyExcludeFromCollections: true
       <link>{{ site.url }}{{ post.url }}</link>
       <guid>{{ site.url }}{{ post.url }}</guid>
       <pubDate>{{ post.date | rfc822Date }}</pubDate>
-      <description>{{ post.templateContent | excerpt }}</description>
+      <description>{{ post.templateContent | firstParagraph }}</description>
     </item>{% endfor %}
   </channel>
 </rss>

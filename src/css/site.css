@@ -255,6 +255,13 @@ blockquote {
   margin-bottom: 0;
 }
 
+.post-more {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+}
+
 .bio-links {
   margin-top: 2.5rem;
   font-size: 0.95rem;
