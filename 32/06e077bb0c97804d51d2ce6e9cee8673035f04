@@ -1,0 +1,37 @@
+src/feed.njk
+  s_3047a820c6595f::t_792e57c11fc840 16
+eleventy.config.mjs
+  s_3047a820c6595f::t_680bcc346cddd7 17-29
+  s_3047a820c6595f::t_5506ef0b6fc353 63-68
+  s_3047a820c6595f::t_ef8487b9fc9063 49,51-56,60-61
+  s_3047a820c6595f::t_e8e7d9eadbaac0 62
+src/index.njk
+  s_3047a820c6595f::t_5db75f975c4ca9 13
+  s_3047a820c6595f::t_b037b66d39d258 14-16
+src/css/site.css
+  s_3047a820c6595f::t_6854fde3e18c9c 258-264
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "3206e077bb0c97804d51d2ce6e9cee8673035f04",
+  "prompts": {},
+  "humans": {
+    "h_575c371f09c235": {
+      "author": "Dakota Miller <ddmiller1995@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_3047a820c6595f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b9c25cb3-53b9-41aa-ba67-53641d20ae71",
+        "model": "unknown"
+      },
+      "human_author": "Dakota Miller <ddmiller1995@gmail.com>",
+      "custom_attributes": {
+        "runtime": "local"
+      }
+    }
+  }
+}
