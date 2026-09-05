@@ -12,7 +12,14 @@ md.use(anchor, {
   }),
 });
 
-md.use(await Shiki({ theme: 'vitesse-light' }));
+md.use(
+  await Shiki({
+    themes: { light: 'vitesse-light', dark: 'vitesse-dark' },
+    // Emits `light-dark(<light>, <dark>)` directly onto the tokens so code
+    // blocks track the page's color-scheme with no extra CSS or `.dark` class.
+    defaultColor: 'light-dark()',
+  })
+);
 
 // Open external (absolute http/https) links in a new tab; internal links unchanged.
 const defaultLinkOpen =

@@ -7,11 +7,22 @@
   <meta name="description" content="{{ (content | excerpt) if useExcerptDescription else (description or site.description) }}">
   <link rel="icon" href="/favicon.ico">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
+  <meta name="theme-color" content="#f3f2f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1a19" media="(prefers-color-scheme: dark)">
   <!-- Matches --bg in site.css. Cross-document view transitions hold the old
        page's screenshot until the new page's render-blocking resources are
        done; if first paint ever slips through before then, this keeps it
-       from being the UA-default white instead of the page background. -->
-  <style>html{background:#f3f2f2}</style>
+       from being the UA-default white instead of the page background. The
+       light-dark() value follows the OS setting for visitors who haven't
+       picked a theme. -->
+  <style>html{color-scheme:light dark;background:light-dark(#f3f2f2,#1b1a19)}</style>
+  <!-- Apply a saved theme override before first paint to avoid a flash. -->
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.style.colorScheme = t;
+    } catch (e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Loaded non-render-blocking: this is a cross-origin request repeated on
@@ -29,6 +40,11 @@
       <a class="corner-icon" href="{{ navBack }}" aria-label="Back">
         <svg viewBox="0 0 24 24"><path d="M15 5 L7 12 L15 19"/></svg>
       </a>
+      {% else %}
+      <button class="corner-icon theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
       {% endif %}
     </div>
     <div class="nav-slot">
@@ -56,6 +72,25 @@
       const ok = document.execCommand('copy');
       ta.remove();
       return ok ? Promise.resolve() : Promise.reject();
+    }
+
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      const currentTheme = () => {
+        const override = document.documentElement.style.colorScheme;
+        if (override === 'light' || override === 'dark') return override;
+        return prefersDark.matches ? 'dark' : 'light';
+      };
+      const sync = () => { themeToggle.dataset.theme = currentTheme(); };
+      sync();
+      prefersDark.addEventListener('change', sync);
+      themeToggle.addEventListener('click', () => {
+        const next = currentTheme() === 'dark' ? 'light' : 'dark';
+        document.documentElement.style.colorScheme = next;
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        sync();
+      });
     }
 
     for (const el of document.querySelectorAll('.copy-email')) {

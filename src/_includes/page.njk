@@ -4,6 +4,9 @@ navBack: /
 navBio: true
 ---
 <article class="page">
+  {% if profileImage %}
+  <img class="page-portrait" src="{{ profileImage }}" alt="{{ profileImageAlt or title }}" width="152" height="152">
+  {% endif %}
   <h1>{{ title }}</h1>
   {{ content | safe }}
   {% if showSocialLinks %}

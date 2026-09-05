@@ -3,6 +3,8 @@ title: Bio
 layout: page.njk
 navBio: false
 showSocialLinks: true
+profileImage: /images/mountain-headshot-square.jpg
+profileImageAlt: Dakota Miller headshot
 permalink: /bio/
 ---
 

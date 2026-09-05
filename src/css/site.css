@@ -8,14 +8,17 @@
 */
 
 :root {
-  --bg: #f3f2f2;
-  --bg-raised: #eae9e9;
-  --text: #201e1d;
-  --text-muted: #6b6767;
-  --border: color-mix(in srgb, #201e1d 16%, transparent);
-  --brand: #0088b0;
-  --brand-hover: #006786;
-  --brand-visited: #6b6767;
+  --bg: light-dark(#f3f2f2, #1b1a19);
+  --bg-raised: light-dark(#eae9e9, #262523);
+  --text: light-dark(#201e1d, #e6e4e2);
+  --text-muted: light-dark(#6b6767, #9b9694);
+  --border: light-dark(
+    color-mix(in srgb, #201e1d 16%, transparent),
+    color-mix(in srgb, #e6e4e2 16%, transparent)
+  );
+  --brand: light-dark(#0088b0, #45b6d6);
+  --brand-hover: light-dark(#006786, #7fd0e6);
+  --brand-visited: light-dark(#6b6767, #9b9694);
   --max-width: 44rem;
   --content-inset: clamp(1.25rem, 6vw, 3rem);
   --font-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
@@ -32,7 +35,7 @@
 }
 
 html {
-  color-scheme: light;
+  color-scheme: light dark;
 }
 
 body {
@@ -95,6 +98,26 @@ a:hover {
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.theme-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+.theme-toggle[data-theme="dark"] .icon-moon {
+  display: none;
+}
+
+.theme-toggle[data-theme="dark"] .icon-sun {
+  display: block;
 }
 
 main {
@@ -314,6 +337,29 @@ blockquote {
 
 .copy-email.is-copied::after {
   opacity: 1;
+}
+
+.page {
+  position: relative;
+}
+
+/* Portrait sits in the left margin, its top aligned with the page heading.
+   Hidden by default; only shown once the viewport is wide enough that the
+   centered content column leaves room for it without crowding or scrolling. */
+.page-portrait {
+  display: none;
+}
+
+@media (min-width: 72rem) {
+  .page-portrait {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 9.5rem;
+    margin-right: 2rem;
+    border-radius: 50%;
+  }
 }
 
 .bio-links {
