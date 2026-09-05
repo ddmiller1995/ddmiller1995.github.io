@@ -22,7 +22,7 @@ Finally, [`ast-grep`](https://ast-grep.github.io/) deserves a special shoutout. 
 ## Invest in both sides
 
 To keep up with the speed of AI authored code, you need to invest in AI tooling for reviewing code. I've had success with AI code reviewers doing the first pass review, and building custom skills to make human review easier.
-#### Let AI take the first pass
+### Let AI take the first pass
 
 The most common type of off-the-shelf AI code reviewer is a bug finder. These can be configured to run on every PR revision, and automatically post comments flagging bugs. They will attempt to use broader codebase context, but can often get hyper-focused on the files being changed. The false positive rate tends to be high, but with some configuration I've found a lot of value here, and caught some genuinely tricky bugs. [Cursor BugBot](https://cursor.com/bugbot) has worked well for my team, but there is lots of competition in this space. 
 
@@ -34,7 +34,7 @@ If insufficient, then:
 - Add a non-blocking Suggestion titled "Error message is not actionable"
 - Body: "This would appear in logs as '{message}'. Include the failing operation and the relevant input or expected value."
 ```
-#### Speed up human review
+### Speed up human review
 In my experience, the most time consuming part of code review is building up context. This typically looks like sequentially reading through every file touched, piecing together what the change is trying to accomplish, where the complexity is, and how everything fits together. LLMs are remarkably good at reading vast amounts of code very quickly, and can create artifacts that make all this information much faster to digest. 
 
 We've built a few different skills for this at my company, and the one that's become my daily driver is called `/interactive-pr-review`. I run it in Claude Code, and it creates an `.html` slide deck that I use as my starting point. It gives me an overview of what the PR is trying to accomplish, the files touched, and zooms into code that is notable, complex, or high risk. Code that is less risky gets summarized in the overview. It will also take another pass at detecting bugs or risks, and flag those for my review. 
