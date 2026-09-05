@@ -42,5 +42,30 @@
   <main>
     {{ content | safe }}
   </main>
+  <script>
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      ta.remove();
+      return ok ? Promise.resolve() : Promise.reject();
+    }
+
+    for (const el of document.querySelectorAll('.copy-email')) {
+      el.addEventListener('click', () => {
+        copyText(el.dataset.copy).then(() => {
+          el.classList.add('is-copied');
+          setTimeout(() => el.classList.remove('is-copied'), 1500);
+        });
+      });
+    }
+  </script>
 </body>
 </html>

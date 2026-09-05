@@ -2,6 +2,7 @@ export default {
   title: 'Dakota Miller',
   description: "A small website, for what I'm thinking about and working on.",
   url: 'https://dakota-miller.com',
+  email: 'contact@dakota-miller.com',
   author: {
     name: 'Dakota Miller',
     email: 'me@dakota-miller.com',
