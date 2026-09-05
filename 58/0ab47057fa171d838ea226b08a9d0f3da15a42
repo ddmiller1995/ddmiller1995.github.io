@@ -1,0 +1,14 @@
+src/bio.md
+  h_575c371f09c235 11,13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "580ab47057fa171d838ea226b08a9d0f3da15a42",
+  "prompts": {},
+  "humans": {
+    "h_575c371f09c235": {
+      "author": "Dakota Miller <ddmiller1995@gmail.com>"
+    }
+  }
+}
